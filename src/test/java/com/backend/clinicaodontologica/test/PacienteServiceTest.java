@@ -41,7 +41,7 @@ class PacienteServiceTest {
     @Test
     void deberiaAgregarUnPaciente(){
 
-        Paciente paciente = new Paciente("Nombre", "Apellido", 123456, LocalDate.of(2023, 05, 02), new Domicilio("Calle", 13, "Localidad", "Provincia"));
+        Paciente paciente = new Paciente("Marcelo", "Apellido", 123456, LocalDate.of(2023, 05, 02), new Domicilio("Calle", 13, "Localidad", "Provincia"));
 
         Paciente pacienteRegistrado = pacienteService.registrarPaciente(paciente);
 
