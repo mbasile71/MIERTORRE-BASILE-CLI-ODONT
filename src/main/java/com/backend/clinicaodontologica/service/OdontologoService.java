@@ -2,7 +2,7 @@ package com.backend.clinicaodontologica.service;
 
 import com.backend.clinicaodontologica.dao.IDao;
 import com.backend.clinicaodontologica.model.Odontologo;
-import com.backend.clinicaodontologica.model.Paciente;
+
 
 import java.util.List;
 
