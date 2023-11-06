@@ -8,6 +8,7 @@ import java.util.List;
 public class PacienteService {
     private IDao<Paciente> pacienteIDao;
 
+    //Constructor
     public PacienteService(IDao<Paciente> pacienteIDao) {
         this.pacienteIDao = pacienteIDao;
     }
