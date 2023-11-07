@@ -2,10 +2,12 @@ package com.backend.clinicaodontologica.service;
 
 import com.backend.clinicaodontologica.dao.IDao;
 import com.backend.clinicaodontologica.model.Odontologo;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
 
+@Service
 public class OdontologoService {
     private IDao<Odontologo> odontologoIDao;
 
