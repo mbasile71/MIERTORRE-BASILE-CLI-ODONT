@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 @SpringBootApplication
 public class ClinicaOdontologicaApplication {
 
@@ -12,7 +15,24 @@ public class ClinicaOdontologicaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ClinicaOdontologicaApplication.class, args);
+		createDb();
 		logger.info("ClinicaOdontologica is now running...");
 	}
 
+	private static void createDb() {
+		Connection connection = null;
+		try {
+			Class.forName("org.h2.Driver");
+			connection = DriverManager.getConnection("jdbc:h2:~/bdcodontol;INIT=RUNSCRIPT FROM 'create.sql'", "sa", "sa");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
 }
