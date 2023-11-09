@@ -13,7 +13,8 @@ import java.util.List;
 
 public class OdontologoController {
 
-    private IDao<Odontologo> odontologoIDaoService;
+    //Luego arreglarlo
+    private xxxxxx;
 
     //Constructor
     public OdontologoController(IDao<Odontologo> odontologoIDaoService) {
