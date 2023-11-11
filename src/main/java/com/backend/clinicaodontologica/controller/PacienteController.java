@@ -1,8 +1,11 @@
 package com.backend.clinicaodontologica.controller;
 
 import com.backend.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
+import com.backend.clinicaodontologica.dto.salida.Paciente.PacinteSalidaDto;
 import com.backend.clinicaodontologica.model.Paciente;
 import com.backend.clinicaodontologica.service.IPacienteService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,11 +21,12 @@ public class PacienteController {
         this.pacienteService = pacienteService;
     }
 
-    //Post
+    //POST
     @PostMapping("/registrar")
-    public Paciente registrarPaciente(@RequestBody @Valid PacienteEntradaDto paciente){
-        return pacienteService.registrarPaciente(paciente);
+    public ResponseEntity<PacinteSalidaDto> registrarPaciente(@RequestBody @Valid PacienteEntradaDto paciente){
+        return new ResponseEntity<>(pacienteService.registrarPaciente(paciente), HttpStatus.CREATED);
     }
+
 
     //Put
     @PutMapping("/actualizar")
