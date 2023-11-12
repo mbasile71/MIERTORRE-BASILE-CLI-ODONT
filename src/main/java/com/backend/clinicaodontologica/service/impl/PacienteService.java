@@ -44,16 +44,42 @@ public class PacienteService implements IPacienteService {
     }
 
     @Override
-    public List<Paciente> listarPacientes() {
-        return pacienteIDao.listarTodos();
+    public List<PacinteSalidaDto> listarPacientes() {
+        List<PacinteSalidaDto> pacinteSalidaDto = pacienteIDao.listarTodos()
+                .stream()
+                //aca con el map iteramos la lista de pacientes y con el strim lo transformamos stream y
+                //luego con el toList lo convertimos en una lista
+                .map(paciente -> modelMapper.map(paciente, PacinteSalidaDto.class))
+                .toList();
+
+        //esto seria la forma tradicional con un forEach
+        //List<Paciente> pacientes = pacienteIDao.listarTodos();
+        //List<PacienteSalidaDto> pacienteSalidaDtos = new ArrayList<>();
+        //for (Paciente paciente : pacientes){
+        //    PacienteSalidaDto pacienteSalidaDto = modelMapper.map(paciente, PacienteSalidaDto.class);
+        //    pacienteSalidaDtos.add(pacienteSalidaDto);
+        //}
+
+        LOGGER.info("Listado de pacientes: {}" , pacinteSalidaDto);
+        return pacinteSalidaDto;
     }
 
     @Override
-    public Paciente buscarPaciente(int id) {
-        return pacienteIDao.buscarPorId(id);
+    public PacinteSalidaDto buscarPacientePorId(int id) {
+        Paciente pacienteBuscado = pacienteIDao.buscarPorId(id);
+        PacinteSalidaDto pacienteEncontrado = null;
+        if(pacienteBuscado != null){
+            pacienteEncontrado = modelMapper.map(pacienteBuscado, PacinteSalidaDto.class);
+            LOGGER.info("Paciente encontrado: {} ", pacienteEncontrado);
+        }else {
+            LOGGER.error("No se encuentra el ID en la base de datos");
+        }
+
+        return pacienteEncontrado;
     }
 
     @Override
+    //aqui cambiar luego por PacinteSalidaDto (pendiente de hacer nosotros)
     public Paciente actualizarPaciente(Paciente paciente) {
         return pacienteIDao.actualizar(paciente);
     }

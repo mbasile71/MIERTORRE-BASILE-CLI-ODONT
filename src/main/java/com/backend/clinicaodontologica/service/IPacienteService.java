@@ -11,10 +11,11 @@ public interface IPacienteService {
 
     PacinteSalidaDto registrarPaciente(PacienteEntradaDto paciente);
 
-    List<Paciente> listarPacientes();
+    List<PacinteSalidaDto> listarPacientes();
 
-    Paciente buscarPaciente(int id);
+    PacinteSalidaDto buscarPacientePorId(int id);
 
+    //aqui cambiar luego por PacinteSalidaDto
     Paciente actualizarPaciente(Paciente paciente);
 
 }
