@@ -8,14 +8,14 @@ public class Odontologo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int numeroMatricula;
+    private String numeroMatricula;
     private String nombre;
     private String apellido;
 
     public Odontologo() {
     }
 
-    public Odontologo(int numeroMatricula, String nombre, String apellido) {
+    public Odontologo(String numeroMatricula, String nombre, String apellido) {
         this.numeroMatricula = numeroMatricula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -29,11 +29,11 @@ public class Odontologo {
         this.id = id;
     }
 
-    public int getNumeroMatricula() {
+    public String getNumeroMatricula() {
         return numeroMatricula;
     }
 
-    public void setNumeroMatricula(int numeroMatricula) {
+    public void setNumeroMatricula(String numeroMatricula) {
         this.numeroMatricula = numeroMatricula;
     }
 
