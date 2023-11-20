@@ -1,6 +1,6 @@
 package com.backend.clinicaodontologica.service.impl;
 
-import com.backend.clinicaodontologica.dto.Modificacion.PacienteModificacionentradaDto;
+import com.backend.clinicaodontologica.dto.Modificacion.PacienteModificacionEntradaDto;
 import com.backend.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
 import com.backend.clinicaodontologica.dto.salida.Paciente.PacinteSalidaDto;
 import com.backend.clinicaodontologica.entity.Paciente;
@@ -82,7 +82,7 @@ public class PacienteService implements IPacienteService {
 
 
     @Override
-    public PacinteSalidaDto actualizarPaciente(PacienteModificacionentradaDto paciente) {
+    public PacinteSalidaDto actualizarPaciente(PacienteModificacionEntradaDto paciente) {
         //debo pasar el paciente (paciente )que recibo a enti dad Paciente.class para enviarlo a persistencia
         Paciente pacienteRecibido = modelMapper.map(paciente, Paciente.class);  //TIENE EL ID
         //Busco el paciente a actualizar por el ID
@@ -114,7 +114,7 @@ public class PacienteService implements IPacienteService {
             pacienteRepository.deleteById(id);
             LOGGER.warn("Se ha elimiminado al paciente con id: {}" , id);
         }else {
-            LOGGER.error("no s epudo elimiminar al paciente con id {}", id);
+            LOGGER.error("No se encuentra en la base de datos el paciente con ID {}", id);
             //lanzar excepcion aqui
         }
     }
@@ -127,8 +127,8 @@ public class PacienteService implements IPacienteService {
                 Paciente::setDomicilio));
         modelMapper.typeMap(Paciente.class, PacinteSalidaDto.class)
                 .addMappings(modelMapper -> modelMapper.map(Paciente::getDomicilio, PacinteSalidaDto::setDomicilioSalidaDto));
-        modelMapper.typeMap(PacienteModificacionentradaDto.class, Paciente.class)
-                .addMappings(mapper -> mapper.map(PacienteModificacionentradaDto::getDomicilioEntradaDto, Paciente::setDomicilio));
+        modelMapper.typeMap(PacienteModificacionEntradaDto.class, Paciente.class)
+                .addMappings(mapper -> mapper.map(PacienteModificacionEntradaDto::getDomicilioEntradaDto, Paciente::setDomicilio));
     }
 
 }

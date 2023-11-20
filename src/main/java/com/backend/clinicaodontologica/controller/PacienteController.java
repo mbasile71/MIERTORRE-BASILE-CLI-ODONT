@@ -1,6 +1,6 @@
 package com.backend.clinicaodontologica.controller;
 
-import com.backend.clinicaodontologica.dto.Modificacion.PacienteModificacionentradaDto;
+import com.backend.clinicaodontologica.dto.Modificacion.PacienteModificacionEntradaDto;
 import com.backend.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
 import com.backend.clinicaodontologica.dto.salida.Paciente.PacinteSalidaDto;
 import com.backend.clinicaodontologica.service.IPacienteService;
@@ -42,7 +42,7 @@ public class PacienteController {
 
     //PUT
     @PutMapping("/actualizar")
-    public PacinteSalidaDto actualizarPaciente(@RequestBody PacienteModificacionentradaDto paciente){
+    public PacinteSalidaDto actualizarPaciente(@RequestBody PacienteModificacionEntradaDto paciente){
         return pacienteService.actualizarPaciente(paciente);
     }
 

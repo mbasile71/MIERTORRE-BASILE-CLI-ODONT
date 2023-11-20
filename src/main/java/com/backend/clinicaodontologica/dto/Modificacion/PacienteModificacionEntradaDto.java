@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-public class PacienteModificacionentradaDto {
+public class PacienteModificacionEntradaDto {
 
     @NotNull(message = "Debe proveerse el id del paciente que se desea modificar")
     private Long id;
@@ -38,10 +38,10 @@ public class PacienteModificacionentradaDto {
     @Valid
     private DomicilioEntradaDto domicilioEntradaDto;
 
-    public PacienteModificacionentradaDto() {
+    public PacienteModificacionEntradaDto() {
     }
 
-    public PacienteModificacionentradaDto(Long id, String nombre, String apellido, Integer dni, LocalDate fechaIngreso, DomicilioEntradaDto domicilioEntradaDto) {
+    public PacienteModificacionEntradaDto(Long id, String nombre, String apellido, Integer dni, LocalDate fechaIngreso, DomicilioEntradaDto domicilioEntradaDto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
