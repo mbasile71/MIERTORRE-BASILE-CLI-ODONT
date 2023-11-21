@@ -3,6 +3,7 @@ package com.backend.clinicaodontologica.service.impl;
 import com.backend.clinicaodontologica.dto.Modificacion.OdontologoModificacionEntradaDto;
 import com.backend.clinicaodontologica.dto.entrada.odontologo.OdontologoEntradaDto;
 import com.backend.clinicaodontologica.dto.salida.Odontologo.OdontologoSalidaDto;
+import com.backend.clinicaodontologica.dto.salida.Paciente.PacinteSalidaDto;
 import com.backend.clinicaodontologica.entity.Odontologo;
 import com.backend.clinicaodontologica.repository.OdontologoRepository;
 import com.backend.clinicaodontologica.service.IOdontologoService;
@@ -68,17 +69,36 @@ public class OdontologoService implements IOdontologoService {
 
     @Override
     public OdontologoSalidaDto actualizarOdontologo(OdontologoModificacionEntradaDto odontologo) {
-        //debo pasar el paciente (paciente )que recibo a entidad Paciente.class para enviarlo a persistencia
+        //debo pasar el Odontologo (odontologo) que recibo a entidad Odontologo.class para enviarlo a persistencia
+        Odontologo odontologoRecibido = modelMapper.map(odontologo, Odontologo.class);  //EL OBJETO TRAE EL ID PARA BUCARLO Y ACTUALIZARLO
+        //Busco el odontologo a actualizar por el ID
+        Odontologo odontologoAPersistir = odontologoRepository.findById(odontologoRecibido.getId()).orElse(null);  //ACA TENGO EL ID
 
-        //Busco el paciente a actualizar por el ID
+        OdontologoSalidaDto odontologoSalidaDto = null;
 
-        //Debo devolver un paciente "PacienteSalidaDto" y ya lo dejo disponible aqui
-        return null;
+        if(odontologoAPersistir != null){
+            odontologoAPersistir = odontologoRecibido;
+            odontologoRepository.save(odontologoAPersistir);
+
+            //Debo devolver un Odontologo "OdontologoSalidaDto"
+            odontologoSalidaDto = modelMapper.map(odontologoAPersistir, OdontologoSalidaDto.class);
+            LOGGER.warn("Odontologo actualizado: {}", JsonPrinter.toString(odontologoSalidaDto));
+        }else {
+            LOGGER.error("No se encontro al odontologo en nuestra DB");
+        }
+
+        return odontologoSalidaDto;
     }
 
     @Override
     public void eliminarOdontologo(Long id) {
-
+        Odontologo odontologoABorrar = odontologoRepository.findById(id).orElse(null);
+        if(odontologoABorrar != null){
+            odontologoRepository.delete(odontologoABorrar);
+            LOGGER.warn("Se elimino al odontologo con ID: {}", id);
+        }else {
+            LOGGER.error("No se encontro al odontologo con ID: {}", id);
+        }
     }
 
     private void configureMapping(){

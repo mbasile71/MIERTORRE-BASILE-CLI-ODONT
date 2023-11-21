@@ -1,5 +1,6 @@
 package com.backend.clinicaodontologica.controller;
 
+import com.backend.clinicaodontologica.dto.Modificacion.OdontologoModificacionEntradaDto;
 import com.backend.clinicaodontologica.dto.entrada.odontologo.OdontologoEntradaDto;
 import com.backend.clinicaodontologica.dto.salida.Odontologo.OdontologoSalidaDto;
 import com.backend.clinicaodontologica.service.IOdontologoService;
@@ -37,9 +38,17 @@ public class OdontologoController {
         return new ResponseEntity<>(odontologoService.listarOdontologos(), HttpStatus.OK);
      }
 
-
     //PUT
-
+    @PostMapping("/actualizar")
+    public OdontologoSalidaDto actualizarOdontologo(@RequestBody OdontologoModificacionEntradaDto odontologo){
+        return odontologoService.actualizarOdontologo(odontologo);
+    }
 
     //DELETE
+    @DeleteMapping("eliminar/{id}")
+    public ResponseEntity<?> eliminarOdontologo(@PathVariable Long id){
+        odontologoService.eliminarOdontologo(id);
+        return new ResponseEntity<>("Odontologo eliminado correcatamente...", HttpStatus.OK);
+    }
+
 }
