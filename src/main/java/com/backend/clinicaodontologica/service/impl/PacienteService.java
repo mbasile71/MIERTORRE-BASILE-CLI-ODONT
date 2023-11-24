@@ -4,6 +4,7 @@ import com.backend.clinicaodontologica.dto.Modificacion.PacienteModificacionEntr
 import com.backend.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
 import com.backend.clinicaodontologica.dto.salida.Paciente.PacinteSalidaDto;
 import com.backend.clinicaodontologica.entity.Paciente;
+import com.backend.clinicaodontologica.exception.ResourseNotFoundException;
 import com.backend.clinicaodontologica.repository.PacienteRepository;
 import com.backend.clinicaodontologica.service.IPacienteService;
 import com.backend.clinicaodontologica.utils.JsonPrinter;
@@ -109,13 +110,14 @@ public class PacienteService implements IPacienteService {
     }
 
     @Override
-    public void eliminarPaciente(Long id) {
+    public void eliminarPaciente(Long id) throws ResourseNotFoundException {
         if(pacienteRepository.findById(id).orElse(null) != null){
             pacienteRepository.deleteById(id);
             LOGGER.warn("Se ha elimiminado al paciente con id: {}" , id);
         }else {
             LOGGER.error("No se encuentra en la base de datos el paciente con ID {}", id);
-            //lanzar excepcion aqui
+            throw new ResourseNotFoundException("No se ha encontrado el Paciente con ID: {}" + id);
+
         }
     }
 
@@ -128,7 +130,7 @@ public class PacienteService implements IPacienteService {
         modelMapper.typeMap(Paciente.class, PacinteSalidaDto.class)
                 .addMappings(modelMapper -> modelMapper.map(Paciente::getDomicilio, PacinteSalidaDto::setDomicilioSalidaDto));
         modelMapper.typeMap(PacienteModificacionEntradaDto.class, Paciente.class)
-                .addMappings(mapper -> mapper.map(PacienteModificacionEntradaDto::getDomicilioEntradaDto, Paciente::setDomicilio));
+                .addMappings(mapper -> mapper.map(PacienteModificacionEntradaDto::getDomicilioModificacionEntradaDto, Paciente::setDomicilio));
     }
 
 }

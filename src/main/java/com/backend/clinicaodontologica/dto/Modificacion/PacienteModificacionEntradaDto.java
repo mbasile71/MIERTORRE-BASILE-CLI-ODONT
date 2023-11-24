@@ -36,18 +36,18 @@ public class PacienteModificacionEntradaDto {
 
     @NotNull(message = "El domicilio del paciente no puede ser nulo")
     @Valid
-    private DomicilioEntradaDto domicilioEntradaDto;
+    private DomicilioModificacionEntradaDto domicilioModificacionEntradaDto;
 
     public PacienteModificacionEntradaDto() {
     }
 
-    public PacienteModificacionEntradaDto(Long id, String nombre, String apellido, Integer dni, LocalDate fechaIngreso, DomicilioEntradaDto domicilioEntradaDto) {
+    public PacienteModificacionEntradaDto(Long id, String nombre, String apellido, Integer dni, LocalDate fechaIngreso, DomicilioModificacionEntradaDto domicilioModificacionEntradaDto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
-        this.domicilioEntradaDto = domicilioEntradaDto;
+        this.domicilioModificacionEntradaDto = domicilioModificacionEntradaDto;
     }
 
     public Long getId() {
@@ -90,11 +90,11 @@ public class PacienteModificacionEntradaDto {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public DomicilioEntradaDto getDomicilioEntradaDto() {
-        return domicilioEntradaDto;
+    public DomicilioModificacionEntradaDto getDomicilioModificacionEntradaDto() {
+        return domicilioModificacionEntradaDto;
     }
 
-    public void setDomicilioEntradaDto(DomicilioEntradaDto domicilioEntradaDto) {
-        this.domicilioEntradaDto = domicilioEntradaDto;
+    public void setDomicilioModificacionEntradaDto(DomicilioModificacionEntradaDto domicilioModificacionEntradaDto) {
+        this.domicilioModificacionEntradaDto = domicilioModificacionEntradaDto;
     }
 }
