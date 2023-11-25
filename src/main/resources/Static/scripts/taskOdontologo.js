@@ -1,5 +1,6 @@
 
 window.addEventListener('load', function() {
+
 /* ---------------------- obtenemos variables globales ---------------------- */
 const form = document.querySelector("form")
 const nombre = document.querySelector("#nombre");
@@ -55,7 +56,7 @@ function realizarLogin(settings) {
 console.log("Lanzar la consulta a la API")
 
 fetch("http://localhost:8081/odontologos/registrar", settings)
-/*.then(response => {
+.then(response => {
 
         
 
@@ -65,22 +66,21 @@ fetch("http://localhost:8081/odontologos/registrar", settings)
     else{
         alert("Promesa incumplida")
     }
-})*/
+})
 
 .then(data => {
     console.log("Promesa cumplida💍");
-    //Redireccionamos al DashBoard
-    //location.replace("./mis-tareas.html") 
+    
 })
 
 .catch(err => {
     console.warn("Promesa rechazada...")
     console.log(err.status)
     if(err.status == 400){
-        console.warn("contraseña incorrecta...")
-            alert("La contraseña es incorrecta...")
+        console.warn("Error 400...")
+            alert("Error 400...")
         }else if(err.status == 404){
-            alert("el usuario no existe...")
+            alert("Error 404......")
         }else{
             alert("Error del servidor | URL inexistente...")
         }
