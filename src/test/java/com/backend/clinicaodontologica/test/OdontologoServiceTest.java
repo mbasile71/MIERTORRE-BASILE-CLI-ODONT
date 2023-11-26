@@ -1,40 +1,23 @@
 package com.backend.clinicaodontologica.test;
 
 
-import org.junit.jupiter.api.BeforeAll;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
+import com.backend.clinicaodontologica.dto.entrada.odontologo.OdontologoEntradaDto;
+import com.backend.clinicaodontologica.dto.salida.Odontologo.OdontologoSalidaDto;
+import com.backend.clinicaodontologica.service.impl.OdontologoService;
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 
 class OdontologoServiceTest {
 
-    /*private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
+    private OdontologoService odontologoService;
 
-    @BeforeAll
-    static void doBefore() {
-        Connection connection = null;
-        try {
-            Class.forName("org.h2.Driver");
-            connection = DriverManager.getConnection("jdbc:h2:~/bdcodontol;INIT=RUNSCRIPT FROM 'create.sql'", "sa", "sa");
+    @Test
+    void deberiaAgregarUnOdontologo(){
+    OdontologoEntradaDto odontologo = new OdontologoEntradaDto("1234", "Marcelo", "Basile");
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                connection.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
+    OdontologoSalidaDto odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
+
+    Assert.assertTrue(odontologoRegistrado.getNombre() != null);
     }
-
-    //@Test
-    //void deberiaAgregarUnOdontologo(){
-     //   Odontologo odontologo = new Odontologo(1234, "Marcelo", "Basile");
-
-    //   Odontologo odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
-
-    //    assertTrue(odontologoRegistrado.getId() != 0);
-    //}*/
 
 }

@@ -127,8 +127,10 @@ public class PacienteService implements IPacienteService {
         modelMapper.typeMap(PacienteEntradaDto.class, Paciente.class)
                 .addMappings(modelMapper -> modelMapper.map(PacienteEntradaDto::getDomicilioEntradaDto,
                 Paciente::setDomicilio));
+
         modelMapper.typeMap(Paciente.class, PacinteSalidaDto.class)
                 .addMappings(modelMapper -> modelMapper.map(Paciente::getDomicilio, PacinteSalidaDto::setDomicilioSalidaDto));
+
         modelMapper.typeMap(PacienteModificacionEntradaDto.class, Paciente.class)
                 .addMappings(mapper -> mapper.map(PacienteModificacionEntradaDto::getDomicilioModificacionEntradaDto, Paciente::setDomicilio));
     }

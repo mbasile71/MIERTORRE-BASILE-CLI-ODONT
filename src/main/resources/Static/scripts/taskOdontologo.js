@@ -7,7 +7,7 @@ const nombre = document.querySelector("#nombre");
 const apellido = document.querySelector("#apellido");
 const matricula = document.querySelector("#matricula");
 
-//const url = "localhost:8081/"
+const url = "http://localhost:8081"
 
 const btn = document.querySelector('button');
 
@@ -25,13 +25,14 @@ event.preventDefault()
 
 //Creamos el cuerpo de la request (petición al servidor)
 const payload = {
-    numeromatricula: matricula.value,
+    numeroMatricula: matricula.value,
     nombre: nombre.value,
     apellido: apellido.value    
   }
 
  //vemos el objeto que recibimos del formulario
  console.log(payload)  
+ alert("Este de arriba el el payload")
 
  //configuramos la request del Fetch
  const settings = {
@@ -41,10 +42,15 @@ const payload = {
         "Content-Type": "application/json"
     }
 }
+console.log(settings)
+alert("arriba settings")
+
 
 //Lanzamos la consulta del login a la API
 realizarLogin(settings)
 
+//Limpiar Formulario
+form.reset()
 
 })
 
@@ -55,7 +61,7 @@ realizarLogin(settings)
 function realizarLogin(settings) {
 console.log("Lanzar la consulta a la API")
 
-fetch("http://localhost:8081/odontologos/registrar", settings)
+fetch(`${url}/odontologos/registrar`, settings)
 .then(response => {
 
         
@@ -70,6 +76,7 @@ fetch("http://localhost:8081/odontologos/registrar", settings)
 
 .then(data => {
     console.log("Promesa cumplida💍");
+    console.log(data);
     
 })
 

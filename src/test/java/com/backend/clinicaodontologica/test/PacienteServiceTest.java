@@ -1,58 +1,45 @@
 package com.backend.clinicaodontologica.test;
 
 
-import com.backend.clinicaodontologica.entity.Domicilio;
-import com.backend.clinicaodontologica.entity.Paciente;
+import com.backend.clinicaodontologica.dto.entrada.paciente.DomicilioEntradaDto;
+import com.backend.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
+import com.backend.clinicaodontologica.dto.salida.Paciente.PacinteSalidaDto;
+
+import com.backend.clinicaodontologica.exception.ResourseNotFoundException;
 import com.backend.clinicaodontologica.service.impl.PacienteService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.time.LocalDate;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PacienteServiceTest {
 
-    /*private PacienteService pacienteService = new PacienteService(new PacienteDaoH2());
-
-
-    @BeforeAll
-    static void doBefore() {
-        Connection connection = null;
-        try {
-            Class.forName("org.h2.Driver");
-            connection = DriverManager.getConnection("jdbc:h2:~/bdcodontol;INIT=RUNSCRIPT FROM 'create.sql'", "sa", "sa");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                connection.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+    private PacienteService pacienteService;
 
     @Test
     void deberiaAgregarUnPaciente(){
+        PacienteEntradaDto paciente = new PacienteEntradaDto("Marcelo", "Apellido", 123456, LocalDate.of(2023, 05, 02), new DomicilioEntradaDto("Calle", 13, "Localidad", "Provincia"));
 
-        Paciente paciente = new Paciente("Marcelo", "Apellido", 123456, LocalDate.of(2023, 05, 02), new Domicilio("Calle", 13, "Localidad", "Provincia"));
+        PacinteSalidaDto pacinteRegistrado = pacienteService.registrarPaciente(paciente);
 
-        Paciente pacienteRegistrado = pacienteService.registrarPaciente(paciente);
-
-        Assertions.assertTrue(pacienteRegistrado.getId() != 0);
+        Assertions.assertTrue(pacinteRegistrado.getId() != 0);
 
     }
 
     @Test
     void deberiaRetornarUnaListaNoVacia(){
-
         assertFalse(pacienteService.listarPacientes().isEmpty());
+    }
 
-    }*/
+    @Test
+    void deberiaeliminarUnPacientePorId() throws ResourseNotFoundException {
+        PacienteEntradaDto paciente = new PacienteEntradaDto("Marcelo", "Apellido", 123456, LocalDate.of(2023, 05, 02), new DomicilioEntradaDto("Calle", 13, "Localidad", "Provincia"));
+
+        PacinteSalidaDto pacinteRegistrado = pacienteService.registrarPaciente(paciente);
+        Long ObtengoID = (long) pacinteRegistrado.getId();
+        pacienteService.eliminarPaciente(ObtengoID);
+        assertTrue(pacinteRegistrado == null);
+
+    }
 
 }
