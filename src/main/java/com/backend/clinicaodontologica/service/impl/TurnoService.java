@@ -2,6 +2,7 @@ package com.backend.clinicaodontologica.service.impl;
 
 import com.backend.clinicaodontologica.dto.Modificacion.TurnoModificacionEntradaDto;
 import com.backend.clinicaodontologica.dto.entrada.turno.TurnoEntradaDto;
+import com.backend.clinicaodontologica.dto.salida.Paciente.PacinteSalidaDto;
 import com.backend.clinicaodontologica.dto.salida.Turno.TurnoSalidaDto;
 import com.backend.clinicaodontologica.entity.Turno;
 import com.backend.clinicaodontologica.exception.BadRequestException;
@@ -39,19 +40,35 @@ public class TurnoService implements ITurnoService {
     @Override
     public TurnoSalidaDto registrarTurno(TurnoEntradaDto turno) throws BadRequestException {
 
-        //Aca tengo que verificar que el odont y el paciente existan
-        //Llamar al metodo "buscarPacientePorId" y si devuelve Null lanzamos la @BadRequestException
-        //OJO QUE HAY 4 POSIBILIDADES (existen los 2, no existen los 2, o uno de los dos no existe)
+        //Validamos que el odontologo y el paciente existan antes de guardar el turno
+        /*int pacinteId = turno.getPaciente_id();
+        int odontologoID = turno.getOdontologo_id();
+
+        TurnoEntradaDto turnoEntradaDtoOk = null;
+
+        if(pacienteService.buscarPacientePorId((long) pacinteId) != null && pacienteService.buscarPacientePorId((long) odontologoID) != null){
+            turnoEntradaDtoOk = turno;
+        }else if(pacienteService.buscarPacientePorId((long) pacinteId) == null && pacienteService.buscarPacientePorId((long) odontologoID) != null){
+            LOGGER.error("No se encuentra en la base de datos el paciente");
+            throw new BadRequestException("No se encuentra en la base de datos el paciente");
+        } else if(pacienteService.buscarPacientePorId((long) pacinteId) != null && pacienteService.buscarPacientePorId((long) odontologoID) == null){
+            LOGGER.error("No se encuentra en la base de datos al odontologo");
+            throw new BadRequestException("No se encuentra en la base de datos al odontologo");
+        } else{
+            LOGGER.error("No se encuentra en la base de datos al odontologo ni al paciente");
+        }*/
 
         LOGGER.info("TurnoEntradaDto: {}", JsonPrinter.toString(turno));
         Turno turnoEntidad = modelMapper.map(turno, Turno.class);
         Turno turnoAPersistir = turnoRepository.save(turnoEntidad);
         TurnoSalidaDto turnoSalidaDto = modelMapper.map(turnoAPersistir, TurnoSalidaDto.class);
         LOGGER.info("turnoSalidaDto: {}", JsonPrinter.toString(turnoSalidaDto));
+
         return turnoSalidaDto;
 
-        //si no encuentra al paciente o al odontologo lanzar la BadRequestException
-    }
+        }
+
+
 
     @Override
     public List<TurnoSalidaDto> listarTurnos() {
