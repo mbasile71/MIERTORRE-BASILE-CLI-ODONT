@@ -10,23 +10,42 @@ body{
 
 .cabecera{
     display: flex;
+    background-color: rgb(59, 59, 59);
     justify-content: space-around;
     padding: 40px;
+    align-items: center;
 } 
 
 .menu{
   text-align: center;
   justify-content: center;
   justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(96, 100, 100);
    
 }
 
 .nav1{
-  padding: 40px;
+  padding: 20px;
+  color: white;
+}
+
+.subtitulo{
+  padding: 10px;
 }
 
 h1{
     font-size: 25px;
+    color: white;
+}
+
+h2{
+  color: black;
+  padding: 10px;
+}
+
+.formregistro{
+  padding: 1px;
 }
 
 form {
@@ -43,7 +62,7 @@ form {
     /* flex-wrap: wrap; */
     width: 100%;
     border: none;
-    border: 3px solid green;
+    border: 2px solid rgb(153, 150, 150);
     margin-top: 1em;
     box-sizing: border-box;
     padding: 1em;

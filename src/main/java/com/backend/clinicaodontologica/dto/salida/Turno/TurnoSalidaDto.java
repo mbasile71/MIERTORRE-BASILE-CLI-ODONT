@@ -6,7 +6,7 @@ import com.backend.clinicaodontologica.entity.Paciente;
 import java.time.LocalDateTime;
 
 public class TurnoSalidaDto {
-    private int id;
+    private Long id;
     private int paciente_id;
     private int odontologo_id;
     private LocalDateTime fechaYHora;
@@ -14,18 +14,18 @@ public class TurnoSalidaDto {
     public TurnoSalidaDto() {
     }
 
-    public TurnoSalidaDto(int id, int paciente_id, int odontologo_id, LocalDateTime fechaYHora) {
+    public TurnoSalidaDto(Long id, int paciente_id, int odontologo_id, LocalDateTime fechaYHora) {
         this.id = id;
         this.paciente_id = paciente_id;
         this.odontologo_id = odontologo_id;
         this.fechaYHora = fechaYHora;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
