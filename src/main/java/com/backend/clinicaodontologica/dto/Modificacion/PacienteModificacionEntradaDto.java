@@ -27,7 +27,7 @@ public class PacienteModificacionEntradaDto {
 
     @NotNull(message = "El dni del paciente no puede ser nulo")
     @Size(max = 12, message = "El nombre debe tener hasta 12 digitos")
-    private Integer dni;
+    private int dni;
 
     @FutureOrPresent(message = "La fecha no puede ser anterior al día de hoy")
     @NotNull(message = "Debe especificarse la fecha de ingreso del paciente")
@@ -41,7 +41,7 @@ public class PacienteModificacionEntradaDto {
     public PacienteModificacionEntradaDto() {
     }
 
-    public PacienteModificacionEntradaDto(Long id, String nombre, String apellido, Integer dni, LocalDate fechaIngreso, DomicilioModificacionEntradaDto domicilioModificacionEntradaDto) {
+    public PacienteModificacionEntradaDto(Long id, String nombre, String apellido, int dni, LocalDate fechaIngreso, DomicilioModificacionEntradaDto domicilioModificacionEntradaDto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -74,11 +74,11 @@ public class PacienteModificacionEntradaDto {
         this.apellido = apellido;
     }
 
-    public Integer getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(Integer dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
