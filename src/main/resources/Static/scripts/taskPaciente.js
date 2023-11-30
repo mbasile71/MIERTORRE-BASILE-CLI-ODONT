@@ -38,7 +38,7 @@ form.addEventListener('submit', function (event){
     
      //vemos el objeto que recibimos del formulario
      console.log(payload)  
-     alert("Este de arriba el el payload")
+     //alert("Este de arriba el el payload")
     
      //configuramos la request del Fetch
      const settings = {
@@ -49,7 +49,7 @@ form.addEventListener('submit', function (event){
         }
     }
     console.log(settings)
-    alert("arriba settings")
+    alert("Paciente Registrado exitosamente...")
     
     
     //Lanzamos la consulta del login a la API

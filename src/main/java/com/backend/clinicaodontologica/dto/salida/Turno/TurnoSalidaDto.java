@@ -7,18 +7,21 @@ import java.time.LocalDateTime;
 
 public class TurnoSalidaDto {
     private Long id;
+
+    private Long pacienteId;
+
+    private Long odontologoId;
+
     private LocalDateTime fechaYHora;
-    private Long odontologo_id;
-    private Long paciente_id;
 
     public TurnoSalidaDto() {
     }
 
-    public TurnoSalidaDto(Long id, LocalDateTime fechaYHora, Long odontologo_id, Long paciente_id) {
+    public TurnoSalidaDto(Long id, Long pacienteId, Long odontologoId, LocalDateTime fechaYHora) {
         this.id = id;
+        this.pacienteId = pacienteId;
+        this.odontologoId = odontologoId;
         this.fechaYHora = fechaYHora;
-        this.odontologo_id = odontologo_id;
-        this.paciente_id = paciente_id;
     }
 
     public Long getId() {
@@ -29,27 +32,27 @@ public class TurnoSalidaDto {
         this.id = id;
     }
 
+    public Long getPacienteId() {
+        return pacienteId;
+    }
+
+    public void setPacienteId(Long pacienteId) {
+        this.pacienteId = pacienteId;
+    }
+
+    public Long getOdontologoId() {
+        return odontologoId;
+    }
+
+    public void setOdontologoId(Long odontologoId) {
+        this.odontologoId = odontologoId;
+    }
+
     public LocalDateTime getFechaYHora() {
         return fechaYHora;
     }
 
     public void setFechaYHora(LocalDateTime fechaYHora) {
         this.fechaYHora = fechaYHora;
-    }
-
-    public Long getOdontologo_id() {
-        return odontologo_id;
-    }
-
-    public void setOdontologo_id(Long odontologo_id) {
-        this.odontologo_id = odontologo_id;
-    }
-
-    public Long getPaciente_id() {
-        return paciente_id;
-    }
-
-    public void setPaciente_id(Long paciente_id) {
-        this.paciente_id = paciente_id;
     }
 }

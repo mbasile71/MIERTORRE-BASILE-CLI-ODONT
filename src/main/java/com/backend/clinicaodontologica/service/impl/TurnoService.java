@@ -40,8 +40,8 @@ public class TurnoService implements ITurnoService {
     @Override
     public TurnoSalidaDto registrarTurno(TurnoEntradaDto turno) throws BadRequestException {
 
-        OdontologoSalidaDto odontologo = odontologoService.buscarOdontologoPorId(turno.getOdontologo_id());
-        PacinteSalidaDto paciente = pacienteService.buscarPacientePorId(turno.getPaciente_id());
+        OdontologoSalidaDto odontologo = odontologoService.buscarOdontologoPorId(turno.getOdontologoId());
+        PacinteSalidaDto paciente = pacienteService.buscarPacientePorId(turno.getPacienteId());
 
         if (odontologo == null && paciente == null) {
             throw new BadRequestException("No se encuentra ni un odontólogo ni un paciente con los ID proporcionados.");
@@ -122,11 +122,11 @@ public class TurnoService implements ITurnoService {
 
     private void configureMapping(){
             modelMapper.typeMap(TurnoEntradaDto.class, Turno.class)
-                    .addMappings(modelMapper -> modelMapper.map(TurnoEntradaDto::getOdontologo_id, Turno::setOdontologo))
-                    .addMappings(modelMapper -> modelMapper.map(TurnoEntradaDto::getPaciente_id, Turno::setPaciente));
+                    .addMappings(modelMapper -> modelMapper.map(TurnoEntradaDto::getOdontologoId, Turno::setOdontologo))
+                    .addMappings(modelMapper -> modelMapper.map(TurnoEntradaDto::getPacienteId, Turno::setPaciente));
             modelMapper.typeMap(Turno.class, TurnoSalidaDto.class)
-                    .addMappings(modelMapper -> modelMapper.map(Turno::getOdontologo, TurnoSalidaDto::setOdontologo_id))
-                    .addMappings(modelMapper -> modelMapper.map(Turno::getPaciente, TurnoSalidaDto::setPaciente_id));
+                    .addMappings(modelMapper -> modelMapper.map(Turno::getOdontologo, TurnoSalidaDto::setOdontologoId))
+                    .addMappings(modelMapper -> modelMapper.map(Turno::getPaciente, TurnoSalidaDto::setPacienteId));
 
             modelMapper.typeMap(TurnoModificacionEntradaDto.class, Turno.class)
                     .addMappings(modelMapper -> modelMapper.map(TurnoModificacionEntradaDto::getOdontologoEntradaDto, Turno::setOdontologo))

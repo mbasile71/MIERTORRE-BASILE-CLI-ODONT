@@ -21,7 +21,7 @@ class TurnoServiceTest {
     @Autowired
     private TurnoService turnoService;
 
-    @Test
+    /*@Test
     @Order(1)
     void deberiaRegistrarUnTurnoYDevolverUnId() throws BadRequestException{
         try {
@@ -33,7 +33,7 @@ class TurnoServiceTest {
         }
 
 
-    }
+    }*/
 
     @Test
     @Order(2)

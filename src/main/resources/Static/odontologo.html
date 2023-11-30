@@ -12,27 +12,33 @@
     <link rel="stylesheet" href="./css/style.css">
 
     <!-- logica de la página -->
-  <script src="./scripts/taskOdontologo.js"></script>
+<script src="./scripts/taskOdontologo.js"></script>
 </head>
 
 <body>
     <header>
         <div class="cabecera">
-            <h1>CLINICA ODONTOLOGICA - SONRIA YA</h1>
-            <img src="./image/logo.jpg" alt="">
+            <img src="./image/ClinicaDental.png" alt="logoPrincipal">
+            <h1><a id="h1" href="index.html">CLINICA ODONTOLÓGICA - SONRÍA YA</a></h1>
+            <img src="./image/ClinicaDental.png" alt="logoPrincipal">
         </div>
 
         <div class="menu">
+            <a class="nav1" href="index.html">INICIO</a>
             <a class="nav1" href="paciente.html">PACIENTES</a>
-            <a class="nav1" href="odontologo.html">ODONTOLOGOS</a>
+            <a class="nav1" href="odontologo.html">ODONTÓLOGOS</a>
             <a class="nav1" href="turno.html">TURNOS</a>
         </div>
     </header>
 
+    <main>
+        
+    
+    <div id="registro">
     <form class="formregistro">
 
         <div class="subtitulo">
-            <h3>INGRESO DE ODONTOLOGOS</h3>
+            <h3>ODONTÓLOGOS</h3>
         </div>
     
         <fieldset class="datos">
@@ -53,7 +59,7 @@
             <label for="apellido">Apellido:</label>
             <input type="text" name="apellido" id="apellido">
 
-            <label for="matricula">numero de Matricula:</label>
+            <label for="matricula">Número de Matricula:</label>
             <input type="text" name="matricula" id="matricula">
 
             <button type="submit">REGISTRAR</button>
@@ -61,10 +67,11 @@
         </fieldset>
 
     </form>
+    </div>
 
 
     <div></div>
-    
+</main>
 
 
 

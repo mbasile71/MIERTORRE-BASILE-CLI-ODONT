@@ -32,7 +32,7 @@ const payload = {
 
  //vemos el objeto que recibimos del formulario
  console.log(payload)  
- alert("Este de arriba el el payload")
+ //alert("Este de arriba el el payload")
 
  //configuramos la request del Fetch
  const settings = {
@@ -43,7 +43,7 @@ const payload = {
     }
 }
 console.log(settings)
-alert("arriba settings")
+alert("Odontologo Registrado Exitosamente...")
 
 
 //Lanzamos la consulta del login a la API
