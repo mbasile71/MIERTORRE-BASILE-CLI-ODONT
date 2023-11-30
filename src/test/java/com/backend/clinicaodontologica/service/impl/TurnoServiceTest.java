@@ -39,12 +39,12 @@ class TurnoServiceTest {
     @Order(2)
     void alIntentarEliminarUnTurnoConId1Inexistente_deberiaLanzarUnaResourceNotFoundException() throws ResourseNotFoundException{
         try {
-            turnoService.eliminarTurno(1L);
+            turnoService.eliminarTurno(100L);
         }catch (Exception exception){
             exception.printStackTrace();
         }
 
-        assertThrows(ResourseNotFoundException.class, () -> turnoService.eliminarTurno(1L));
+        assertThrows(ResourseNotFoundException.class, () -> turnoService.eliminarTurno(100L));
     }
 
 }
