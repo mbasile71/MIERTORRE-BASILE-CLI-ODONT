@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+    
+    /*body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }*/
+
+    .tablaOdBuscado{
+        margin-left: 110px;
+    }
+
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 5px;
+      text-align: left;
+    }

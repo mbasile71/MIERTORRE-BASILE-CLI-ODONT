@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>CLINICA ODONTOLOGCA - SONRIA YA</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/listar-odontologo.css">
+
+    <!-- logica de la página -->
+<script src="./scripts/listar_odontologo.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="cabecera">
+            <img src="./image/ClinicaDental.png" alt="logoPrincipal">
+            <h1><a id="h1" href="index.html">CLINICA ODONTOLÓGICA - SONRÍA YA</a></h1>
+            <img src="./image/ClinicaDental.png" alt="logoPrincipal">
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="menu">
+
+            <ul class="nav1">
+                <li><a href="index.html">INICIO</a></li>
+
+                <li><a href="">PACIENTES</a>
+                    <ul>
+                        <li><a href="alta_paciente.html">ALTA</a></li>
+                        <li><a href="buscar_paciente.html">BUSCAR</a></li>
+                        <li><a href="listar_paciente.html">LISTAR</a></li>
+                        <li><a href="borrar_paciente.html">BORRAR</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="">ODONTOLOGOS</a>
+                    <ul>
+                        <li><a href="alta_odontologo.html">ALTA</a></li>
+                        <li><a href="buscar_odontologo.html">BUSCAR</a></li>
+                        <li><a href="listar_odontologo.html">LISTAR</a></li>
+                        <li><a href="borrar_odontologo.html">BORRAR</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="">TURNO</a>
+                    <ul>
+                        <li><a href="alta_turno.html">ALTA</a></li>
+                        <li><a href="buscar_turno.html">BUSCAR</a></li>
+                        <li><a href="listar_turno.html">LISTAR</a></li>
+                        <li><a href="borrar_turno.html">BORRAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+
+    
+
+    <div id="registro">
+
+        <form class="formregistro">
+
+            <!-- <div class="subtitulo">
+                <h3>ODONTÓLOGOS</h3>
+            </div> -->
+
+            <!-- <fieldset class="datos">
+                <legend>ODONTOLOGO - BUSQUEDA DE ODONTOLOGOS</legend>
+
+                <label for="id">Ingrese ID del Odontlogo Buscado:</label>
+                <input type="text" name="id" id="id"> -->
+
+                <button type="submit">LISTAR</button>
+
+            </fieldset>
+
+        </form>
+    </div>
+
+    <div class="tablaOdListar">
+
+        <h2>Listado de Odontologos:</h2>
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Matricula</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla"></tbody>
+        </table>
+
+    </div>
+
+
+    
+
+
+    <!-- <div id="OdoBuscado">
+
+        <form class="formOdoBuscado">
+
+            <fieldset class="datosOdo">
+                <h4>Nombre: <spam></spam></h4>
+                <h4>Apellido: <spam></spam></h4>
+                <h4>Nuemro Matricula: <spam></spam></h4>
+
+            </fieldset>
+
+        </form>
+    </div> -->
+
+</body>
+
+</html>

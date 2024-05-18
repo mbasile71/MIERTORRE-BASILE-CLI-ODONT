@@ -1,0 +1,50 @@
+/*.menu{
+    margin: auto;
+    width: 100%;
+    
+}*/
+
+ul, ol{
+    list-style: none;
+}
+
+.nav1 li a {
+    margin-top: 0px;
+    background-color: #161a30;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav1 li {
+    margin-top: 1px;
+    padding: px;
+}
+
+.nav1 li a:hover {
+    background-color: #434343;
+}
+
+.nav1 li:hover > ul {
+    display: block;
+}
+
+.nav1 li ul li {
+    position: relative;
+}
+
+.nav1 li ul li ul {
+    right: -149px;
+    top: 0px;
+}
+
+.nav1 > li {
+    float: left;
+}
+
+.nav1 li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
