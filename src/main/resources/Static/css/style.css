@@ -25,7 +25,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     background-color: #31304D;
     justify-content: space-around;
-    padding: 40px;
+    padding: 1px;
     align-items: center;
 }
 img{
@@ -36,7 +36,8 @@ img{
   opacity: 40%;
 }
 
-main::before {
+/*main::before {*/
+  .html{
   content: ""; /* Añade contenido al pseudo-elemento */
   position: fixed; /* Establece posición fija para cubrir toda la ventana */
   top: 0;
@@ -53,15 +54,18 @@ main::before {
 
 
 .menu{
+  width: 100%;
   text-align: center;
   justify-content: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 15px;
   background-color: #161A30;
 
 }
 
 .nav1{
+  margin-left: 34%;
+  margin-top: 1px;
   padding: 20px;
   color: rgb(240, 236, 229);
   text-decoration: none;
@@ -71,6 +75,7 @@ main::before {
 }
 
 .subtitulo{
+  text-align: center;
   padding: 10px;
 }
 
@@ -89,12 +94,17 @@ h2{
 }
 
 #registro{
+  
   z-index: 1;
 }
 
 .formregistro{
   padding: 1px;
-  background-color: rgba(240, 236, 229,0.6)
+  margin-left: 100px;
+  width: 50%;
+  /*background-color: rgba(240, 236, 229,0.6)*/
+  opacity: 10;
+  
 }
 
 form {
@@ -118,28 +128,84 @@ form {
     
   }
 
+  legend{
+    font-size: 25px;
+  }
+
   button{
     padding: 5px;
     margin-top: 60px;
-    font-size: 17px;
+    font-size: 16px;
     border-radius: 10px;
+    width: 20%;
     cursor: pointer;
-    background-color: #F0ECE5;
+    background-color: #d3d2d1;
   }
+  
   button:hover{
     background-color: rgba(240, 236, 229,0.7);
     color: rgb(0,0,0,0.7)
   }
 
   label{
-    margin-top: 30px;
+    margin-top: 10px;
     
   }
 
   input{
     margin-top: 10px;
-    background-color: #F0ECE5;
+    background-color: white;
     border-radius: 5px;
-    border: solid 1px black;
-    height: 20px;
+    border: solid .5px rgb(196, 192, 192);
+    height: 30px;
   }
+
+
+/* ---------------------------------------------------------------------------------- */
+  /* Aca empieza el estilo del menu */
+
+
+  ul, ol {
+    list-style: none;
+}
+
+.nav1 li a {
+    margin-top: 0px;
+    background-color: #161a30;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 25px;
+    display: block;
+}
+
+.nav1 li {
+    margin-top: 1px;
+    padding: px;
+}
+
+.nav1 li a:hover {
+    background-color: #434343;
+}
+
+.nav1 li:hover > ul {
+    display: block;
+}
+
+.nav1 li ul li {
+    position: relative;
+}
+
+.nav1 li ul li ul {
+    right: -149px;
+    top: 0px;
+}
+
+.nav1 > li {
+    float: left;
+}
+
+.nav1 li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}

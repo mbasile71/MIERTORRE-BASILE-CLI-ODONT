@@ -1,5 +1,8 @@
 package com.backend.clinicaodontologica.dto.salida.Odontologo;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin
 public class OdontologoSalidaDto {
 
     private Long id;

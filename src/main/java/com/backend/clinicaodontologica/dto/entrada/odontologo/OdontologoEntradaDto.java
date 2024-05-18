@@ -1,9 +1,12 @@
 package com.backend.clinicaodontologica.dto.entrada.odontologo;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@CrossOrigin
 public class OdontologoEntradaDto {
 
     @NotNull(message = "El numero de matricula del odontologo no puede ser nulo")

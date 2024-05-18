@@ -1,7 +1,9 @@
 package com.backend.clinicaodontologica.entity;
 
-import javax.persistence.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import javax.persistence.*;
+@CrossOrigin
 @Entity
 @Table(name = "ODONTOLOGO")
 public class Odontologo {
